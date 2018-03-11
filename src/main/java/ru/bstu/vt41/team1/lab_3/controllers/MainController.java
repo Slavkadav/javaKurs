@@ -24,12 +24,11 @@ public class MainController {
 
     @GetMapping(path = "/addPlayer")
     public @ResponseBody
-    String addPlayer(@RequestParam String firstName, @RequestParam String lastName) {
+    String addPlayer(@RequestParam String fio) {
         Player player = new Player();
-        player.setFirstName(firstName);
-        player.setLastName(lastName);
+        player.setFio(fio);
         playerRepository.save(player);
-        return "User " + firstName + " " + lastName + " created";
+        return "User " + fio + " created";
     }
 
     @GetMapping(path = "/all")

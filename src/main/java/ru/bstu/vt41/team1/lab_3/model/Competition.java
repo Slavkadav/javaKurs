@@ -1,19 +1,21 @@
 package ru.bstu.vt41.team1.lab_3.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
+@Data
 @Entity
-@Getter
-@Setter
-public class Team {
+public class Competition {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
+
+    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     @NotBlank
-    String name;
+    private Date date;
+
 }
